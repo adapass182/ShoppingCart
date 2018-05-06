@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Clock from 'react-live-clock'
 
+import './App.css'
+
 import CartItem from './components/CartItem'
 import CheckoutButton from './components/CheckoutButton'
 
