@@ -7,35 +7,26 @@ const productShape = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired
+  quantity: PropTypes.number.isRequired,
+  onPlusClick: PropTypes.func.isRequired
 })
 
 export default class CartItem extends PureComponent {
 
   static propTypes = {
-    onPlusClick: PropTypes.func.isRequired,
     propTypes: productShape.isRequired
-  }
-
-  state = {
-    quantity: 0
-  }
-
-  _incrementQuantity() {
-    this.setState((prevState, props) => {
-      return { quantity: prevState.quantity + 1 }
-    });
   }
 
   render() {
 
-    const { name, price } = this.props
+    const { name, price, onPlusClick, quantity } = this.props
 
     return (
       <li className="CartItem">
         <p className="name">{name}</p>
         <p className="price">€{price}</p>
-        <button className="addtocart" onClick={() => this._incrementQuantity()}>In cart: {this.state.quantity} </button>
+        <p className="quantity">Quantity: {quantity}</p>
+        <button className="addtocart" onClick={onPlusClick}>Add to Cart</button>
       </li>
     )
   }
