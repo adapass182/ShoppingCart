@@ -26,7 +26,7 @@ export default class CartItem extends PureComponent {
         <p className="name">{name}</p>
         <p className="price">€{price}</p>
         <p className="quantity">Quantity: {quantity}</p>
-        <button className="addtocart" onClick={onPlusClick}>Add to cart</button>
+        <CheckoutButton onClick={onPlusClick} name="+" />
       </li>
     )
   }

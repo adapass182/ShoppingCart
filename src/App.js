@@ -21,7 +21,7 @@ export default class App extends Component {
   state = {
     products,
     quantity,
-    totalHolderText: 'Your cart is empty!'
+    totalHolderText: 'Your cart is empty'
   }
 
   _incrementQuantity = (productId) => {
@@ -34,10 +34,10 @@ export default class App extends Component {
 
   totalValue = () => {
     const cartTotal = this.state.products
-      .map(product => products.quantity * products.price)
+      .map(product => product.price * product.quantity)
       .reduce((a, b) => a + b)
     this.setState({
-      totalHolderText: `Cart total: ${cartTotal}`
+      totalHolderText: `Cart total: €${cartTotal}`
     })
   }
 
