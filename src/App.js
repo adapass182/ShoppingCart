@@ -14,16 +14,22 @@ const products = [
 
 export default class App extends Component {
 
+  state = { products }
+
   render() {
     return (
       <div className="App">
         <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
         <ul>
-          {products.map((item, index) => <CartItem key={index} { ...item } />)}
+          {products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={this._incrementQuantity()}/>)}
         </ul>
         <CheckoutButton content="Checkout" />
       </div>
     );
+  }
+
+  _incrementQuantity(productId) {
+    console.log("Hi!" + productId)
   }
 
 }

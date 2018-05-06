@@ -18,3 +18,16 @@ li.CartItem p.name {
 li.CartItem p.price {
   max-width: 50px;
 }
+
+li.CartItem button {
+    flex: 1;
+    border: 1px solid #ccc;
+    font-size: 150%;
+    margin: 12px;
+    cursor: pointer;
+    max-width: 200px;
+}
+
+li.CartItem button:hover {
+    background-color: #eee;
+}
