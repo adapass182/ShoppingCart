@@ -21,7 +21,7 @@ export default class App extends Component {
       <div className="App">
         <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
         <ul>
-          {products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={() => {this._incrementQuantity(product.id)}}/>)}
+          {this.state.products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={() => {this._incrementQuantity(product.id)}}/>)}
         </ul>
         <CheckoutButton content="Checkout" />
       </div>
@@ -29,7 +29,8 @@ export default class App extends Component {
   }
 
   _incrementQuantity(productId) {
-    console.log("Hi!" + productId)
+    console.log(products.find(x => x.id === productId).quantity + 1);
+
   }
 
 }

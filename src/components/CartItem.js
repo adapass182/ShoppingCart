@@ -8,12 +8,13 @@ export default class CartItem extends PureComponent {
   }
   render() {
 
-    const { name, price, onPlusClick } = this.props
+    const { name, price, quantity, onPlusClick } = this.props
 
     return (
       <li className="CartItem">
         <p className="name">{name}</p>
         <p className="price">Price: {price}</p>
+        <p className="quantity">In cart: {quantity}</p>
         <button className="addtocart" onClick={onPlusClick}>Add to cart</button>
       </li>
     )
