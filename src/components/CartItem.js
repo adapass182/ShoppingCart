@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
 
+import CheckoutButton from './CheckoutButton'
+
 import './CartItem.css'
 
 const productShape = PropTypes.shape({
@@ -13,9 +15,7 @@ const productShape = PropTypes.shape({
 
 export default class CartItem extends PureComponent {
 
-  static propTypes = {
-    propTypes: productShape.isRequired
-  }
+  static propTypes = productShape.isRequired
 
   render() {
 
@@ -26,7 +26,7 @@ export default class CartItem extends PureComponent {
         <p className="name">{name}</p>
         <p className="price">€{price}</p>
         <p className="quantity">Quantity: {quantity}</p>
-        <button className="addtocart" onClick={onPlusClick}>Add to Cart</button>
+        <button className="addtocart" onClick={onPlusClick}>Add to cart</button>
       </li>
     )
   }

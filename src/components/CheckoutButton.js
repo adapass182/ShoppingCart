@@ -3,18 +3,21 @@ import PropTypes from 'prop-types'
 
 import './CheckoutButton.css'
 
+const buttonShape = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+})
+
 export default class CheckoutButton extends PureComponent {
 
-  static propTypes = {
-    content: PropTypes.string.isRequired
-  }
+  static propTypes = buttonShape.isRequired
 
   render() {
 
-    const { content } = this.props
+    const { name, onClick } = this.props
 
     return (
-      <button className="CheckoutButton">{content}</button>
+      <button onClick={onClick}>{name}</button>
     )
   }
 }

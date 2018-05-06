@@ -20,7 +20,8 @@ export default class App extends Component {
 
   state = {
     products,
-    quantity
+    quantity,
+    totalHolderText: 'Your cart is empty!'
   }
 
   _incrementQuantity = (productId) => {
@@ -28,6 +29,15 @@ export default class App extends Component {
       products: this.state.products.map(product => {
         return product.id === productId ? {...product, ...product.quantity+=1} : product
       })
+    })
+  }
+
+  totalValue = () => {
+    const cartTotal = this.state.products
+      .map(product => products.quantity * products.price)
+      .reduce((a, b) => a + b)
+    this.setState({
+      totalHolderText: `Cart total: ${cartTotal}`
     })
   }
 
@@ -45,7 +55,8 @@ export default class App extends Component {
               onPlusClick={ () => this._incrementQuantity(product.id) }
             />)}
         </ul>
-        <CheckoutButton content="Checkout" />
+        <CheckoutButton name="Checkout" onClick={this.totalValue}/>
+        <p>{this.state.totalHolderText}</p>
       </div>
     );
   }
