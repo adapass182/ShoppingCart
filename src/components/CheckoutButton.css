@@ -1,0 +1,12 @@
+button.CheckoutButton {
+  flex: 1;
+  border: 1px solid #ccc;
+  font-size: 150%;
+  margin: 12px;
+  cursor: pointer;
+  max-width: 200px;
+}
+
+button.CheckoutButton:hover {
+  background-color: #eee;
+}
