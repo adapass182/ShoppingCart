@@ -21,7 +21,7 @@ export default class App extends Component {
       <div className="App">
         <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
         <ul>
-          {products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={this._incrementQuantity()}/>)}
+          {products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={() => {this._incrementQuantity(product.id)}}/>)}
         </ul>
         <CheckoutButton content="Checkout" />
       </div>
