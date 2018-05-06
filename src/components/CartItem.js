@@ -3,19 +3,28 @@ import PropTypes from 'prop-types'
 import './CartItem.css'
 
 export default class CartItem extends PureComponent {
-  static propTypes = {
-    onPlusClick: PropTypes.func.isRequired
-  }
-  render() {
 
-    const { name, price, quantity, onPlusClick } = this.props
+  static propTypes = {
+    onPlusClick: PropTypes.func.isRequired,
+  }
+
+  state = {
+    quantity: 0
+  }
+
+  _incrementQuantity() {
+    this.setState((prevState, props) => {
+      return { quantity: prevState.quantity + 1 }
+    });
+  }
+
+  render() {
 
     return (
       <li className="CartItem">
-        <p className="name">{name}</p>
-        <p className="price">Price: {price}</p>
-        <p className="quantity">In cart: {quantity}</p>
-        <button className="addtocart" onClick={onPlusClick}>Add to cart</button>
+        <p className="name">{this.props.name}</p>
+        <p className="price">€{this.props.price}</p>
+        <button className="addtocart" onClick={() => this._incrementQuantity()}>In cart: {this.state.quantity} </button>
       </li>
     )
   }

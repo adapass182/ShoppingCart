@@ -16,21 +16,17 @@ export default class App extends Component {
 
   state = { products }
 
+
+
   render() {
     return (
       <div className="App">
         <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
         <ul>
-          {this.state.products.map((product, index) => <CartItem key={index} { ...product } onPlusClick={() => {this._incrementQuantity(product.id)}}/>)}
+          {products.map((product, index) => <CartItem key={index} { ...product } />)}
         </ul>
         <CheckoutButton content="Checkout" />
       </div>
     );
   }
-
-  _incrementQuantity(productId) {
-    console.log(products.find(x => x.id === productId).quantity + 1);
-
-  }
-
 }
